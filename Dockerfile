@@ -9,7 +9,7 @@ COPY src ./src
 RUN mvn -B clean package -DskipTests
 
 # ---------- Etapa 2: imagen final de WildFly ----------
-FROM quay.io/wildfly/wildfly:33.0.2.Final-jdk17
+FROM quay.io/wildfly/wildfly:40.0.1.Final-jdk17
 
 # Copiamos el WAR generado al directorio de despliegues de WildFly
 COPY --from=build /app/target/ROOT.war /opt/jboss/wildfly/standalone/deployments/ROOT.war
