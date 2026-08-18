@@ -1,0 +1,11 @@
+services:
+  wildfly:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wildfly-docker-demo:local
+    container_name: wildfly-demo
+    ports:
+      - "8080:8080"   # Aplicación web
+      - "9990:9990"   # Consola de administración
+    restart: unless-stopped
